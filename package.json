@@ -1,0 +1,16 @@
+{
+  "name": "database-relationship",
+  "version": "1.0.0",
+  "description": "This repository demonstrates various types of database relationships . It provides examples and explanations of how entities within databases are connected through different kinds of relationships. These relationships are key to structuring efficient, normalized databases that minimize redundancy and ensure data integrity.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Adya",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.0",
+    "mongoose": "^8.6.2"
+  }
+}
