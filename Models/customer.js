@@ -26,22 +26,34 @@ const customerSchema = new Schema({
 const Order = mongoose.model("Order", orderSchema);
 const Customer = mongoose.model("Customer", customerSchema);
 
-const addCustomer = async () => {
-    let cust1 = new Customer({
-        name: "Rahul",
-    });
 
-    let order1 = await Order.findOne({ item: "Chips"});
-    let order2 = await Order.findOne({ item: "Chocolate"});
-
-    cust1.orders.push(order1);
-    cust1.orders.push(order2);
-
-    let result = await cust1.save();
-    console.log(result);
+//Using populate
+const findCustomer = async () => {
+    let result = await Customer.find({}).populate("orders");
+    console.log(result[0]);
 };
+findCustomer();
 
-addCustomer();
+//One to Many (Approach 2 store a reference to the child document inside parent)
+
+// const addCustomer = async () => {
+//     let cust1 = new Customer({
+//         name: "Rahul",
+//     });
+
+//     let order1 = await Order.findOne({ item: "Chips"});
+//     let order2 = await Order.findOne({ item: "Chocolate"});
+
+//     cust1.orders.push(order1);
+//     cust1.orders.push(order2);
+
+//     let result = await cust1.save();
+//     console.log(result);
+// };
+
+// addCustomer();
+
+//One to Many (Approach 1 One to few)
 
 // const addOrders = async () => {
 //     let res = await Order.insertMany([
